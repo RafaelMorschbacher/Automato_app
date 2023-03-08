@@ -1,3 +1,5 @@
+# Definições
+
 class State:
     def __init__(self, id, action, transitions ,isFinal):
         self.id = id
@@ -32,27 +34,30 @@ class Automato:
         transition = self.current_state.getTransition(symbol)
         self.current_state = self.getState(transition.dst)
         self.current_state.action()
-    # def readWord(self, word):
-    #     current_state = q0
-    #     for character in word:
-    #         dst = 'undef'
-    #         for transition in current_state.transitions:
-    #             if transition.symbol == character:
-    #                 dst = transition.dst
-    #         current_state = self.getState(dst)
-    #         print(current_state.id)
+    def readWord(self, word):
+        self.current_state.action()
+        for character in word:
+           self.readSymbol(character)
+        if self.current_state.isFinal:
+            print("ACEITA")
+        else:
+            print("REJEITA")
 
 
 
+# Testes:
 def myAction():
     print('Action!')
 
+def askName():
+    name = input('Digite seu nome: ')
+    print("Olá " + name + "!")
 
 q0 = State(
     'q0',
-    myAction,
+    askName,
     [Transition('a', 'q1'), Transition('b', 'q0')],
-    True
+    False
 )
 
 q1 = State(
@@ -63,6 +68,6 @@ q1 = State(
 )
 
 
-myAut = Automato([q0,q1], ['a','b'], 'q1')
+myAut = Automato([q0,q1], ['a','b'], 'q0')
 
-myAut.readSymbol('b')
+myAut.readWord('abbaaa')
