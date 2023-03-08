@@ -1,4 +1,4 @@
-class Estado:
+class State:
     def __init__(self, id, action, transitions ,isFinal):
         self.id = id
         self.action = action
@@ -39,14 +39,14 @@ def myAction():
     print('Action!')
 
 
-q0 = Estado(
+q0 = State(
     'q0',
     myAction,
     [Transition('a', 'q1'), Transition('b', 'q0')],
     True
 )
 
-q1 = Estado(
+q1 = State(
     'q1',
     myAction,
     [Transition('a', 'q0'), Transition('b', 'q1')],
