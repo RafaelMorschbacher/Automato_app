@@ -5,6 +5,11 @@ class State:
         self.transitions = transitions
         self.isFinal = isFinal
 
+    def getTransition(self, symbol):
+        for transition in self.transitions:
+            if transition.symbol == symbol:
+                return transition
+
 class Transition:
     def __init__(self, symbol, dst):
         self.symbol = symbol
@@ -12,10 +17,10 @@ class Transition:
 
 
 class Automato:
-    def __init__(self, states, alph, q0):
+    def __init__(self, states, alph, current_state_id):
         self.states = states
         self.alph = alph
-        self.q0 = q0
+        self.current_state = self.getState(current_state_id)
         
     def getState(self, id):
             for state in self.states:
@@ -23,15 +28,19 @@ class Automato:
                     return state
             return False
 
-    def readWord(self, word):
-        current_state = q0
-        for character in word:
-            dst = 'undef'
-            for transition in current_state.transitions:
-                if transition.symbol == character:
-                    dst = transition.dst
-            current_state = self.getState(dst)
-            print(current_state.id)
+    def readSymbol(self, symbol):
+        transition = self.current_state.getTransition(symbol)
+        self.current_state = self.getState(transition.dst)
+        self.current_state.action()
+    # def readWord(self, word):
+    #     current_state = q0
+    #     for character in word:
+    #         dst = 'undef'
+    #         for transition in current_state.transitions:
+    #             if transition.symbol == character:
+    #                 dst = transition.dst
+    #         current_state = self.getState(dst)
+    #         print(current_state.id)
 
 
 
@@ -54,9 +63,6 @@ q1 = State(
 )
 
 
-myAut = Automato([q0,q1], ['a','b'], q1)
+myAut = Automato([q0,q1], ['a','b'], 'q1')
 
-print(myAut.alph)
-
-
-myAut.readWord('bbbbabbbb')
+myAut.readSymbol('b')
