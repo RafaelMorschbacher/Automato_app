@@ -67,6 +67,12 @@ q1 = State(
     True
 )
 
+q17 = [
+    'q17',
+    myAction(),
+    [Transition('b','q0'), Transition('q','q9')],
+    False
+]
 
 myAut = Automato([q0,q1], ['a','b'], 'q0')
 
