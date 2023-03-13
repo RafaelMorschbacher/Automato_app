@@ -1,4 +1,6 @@
 # Definições
+
+import actions
 class State:
     def __init__(self, id, action, transitions, isFinal):
         self.id = id
@@ -50,6 +52,7 @@ class Automato:
         self.current_state.action()
 
     def readWord(self, word):
+        self.current_state = self.getState('q0')
         self.current_state.action()
         for character in word:
             self.readSymbol(character)
@@ -71,13 +74,13 @@ def askName():
 
 q0 = State(
     'q0',  # 'Menu inicial',
-    myAction,
+    actions.menu,
     [Transition('q', 'q1'), Transition('b', 'q2')],
     True
 )
 q1 = State(
     'q1',  # 'Quit game',
-    myAction,
+    actions.quit_game,
     [],
     True
 )
@@ -181,4 +184,4 @@ q17 = State(
 myAut = Automato([q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17],
                  ['q', 'b', 'e', 'r', 'c', 'w', 'g', 't', 'p', 'n', 'h', 's', 'j', 'l', 'a'], 'q0')
 
-myAut.readWord('becpse')
+myAut.readWord('q')
