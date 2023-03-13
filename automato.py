@@ -86,61 +86,61 @@ q1 = State(
 )
 q2 = State(
     'q2',  # 'Hall de entrada',
-    myAction,
+    actions.entry_hall,
     [Transition('e', 'q3'), Transition('c', 'q11')],
     False
 )
 q3 = State(
     'q3',  # 'Andar de cima',
-    myAction,
+    actions.second_floor,
     [Transition('w', 'q4'), Transition('c', 'q7'), Transition('r', 'q2')],
     False
 )
 q4 = State(
     'q4',  # Quarto',
-    myAction,
+    actions.bedroom,
     [Transition('g', 'q5'), Transition('t', 'q6'), Transition('r', 'q3')],
     False
 )
 q5 = State(
     'q5',  # 'Garrafa de veneno',
-    myAction,
+    actions.bottle,
     [],
     False
 )
 q6 = State(
     'q6',  # 'Televisão: câmera de segurança',
-    myAction,
+    actions.television,
     [Transition('t', 'q6'), Transition('r', 'q4')],
     False
 )
 q7 = State(
     'q7',  # 'Corredor do andar de cima',
-    myAction,
+    actions.second_floor_hall,
     [Transition('n', 'q8'), Transition('p', 'q9')],
     False
 )
 q8 = State(
     'q8',  # 'Papel com recado',
-    myAction,
+    actions.paper_note,
     [Transition('r', 'q7')],
     False
 )
 q9 = State(
     'q9',  # 'Porta',
-    myAction,
+    actions.door_second_floor,
     [Transition('h', 'q10'), Transition('s', 'q17')],
     False
 )
 q10 = State(
     'q10',  # 'Pulou da janela e morreu',
-    myAction,
+    actions.window_jump,
     [],
     False
 )
 q11 = State(
     'q11',  # 'q11',
-    myAction,
+    actions.first_floor_hall,
     [Transition('a', 'q12'), Transition('p', 'q15'), Transition('r', 'q2')],
     False
 )
