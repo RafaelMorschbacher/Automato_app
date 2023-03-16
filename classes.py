@@ -52,11 +52,11 @@ class Automato:
         # print(self.current_state)
         # import pdb
         # pdb.set_trace()
-        self.current_state.action()
+        #self.current_state.action()
 
     def readWord(self, word):
         self.current_state = self.getState('q0')
-        self.current_state.action()
+        #self.current_state.action()
         for character in word:
             self.readSymbol(character)
         if self.current_state.isFinal:
@@ -69,14 +69,25 @@ class Automato:
 
         self.current_state = self.getState('q0')
         is_playing = True
+
+        print('\n--------------------')
+        print('JOGO INICIADO')
+        print('INSTRUÇÕES: ')
+        print(" - Cada símbolo da sua palavra será digitado de uma vez")
+        print(" - Cada símbolo equivale a uma AÇÃO do jogador")
+        print(" - Para parar de digitar símbolos, digite END")
+        print(" - Sua gameplay só será aceita se você terminar em um FINAL da história ou SAIR pelo menu")
+        print('--------------------')
+
         self.current_state.action()
 
         while is_playing:
             user_input = input("Digite o próximo símbolo:")
-            if user_input == 'end':
+            if user_input.lower() == 'end':
                 is_playing = False
             else:
                 self.readSymbol(user_input)
+                self.current_state.action()
         if self.current_state.isFinal:
             print("ACEITA")
         else:
