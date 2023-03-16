@@ -1,6 +1,6 @@
 
-def myAction():
-    print("Action")
+def undef_transition_warning():
+    print("Transição indefinida")
 
 
 
@@ -30,7 +30,7 @@ class Automato:
         self.alph = alph
         self.current_state = self.getState(current_state_id)
 
-        self.trap_state = State('qt', myAction, [], False)
+        self.trap_state = State('qt', undef_transition_warning, [], False)
         self.states.append(self.trap_state)
 
         for state in self.states:
@@ -64,3 +64,20 @@ class Automato:
         else:
             print("REJEITA")
 
+
+    def playGame(self):
+
+        self.current_state = self.getState('q0')
+        is_playing = True
+        self.current_state.action()
+
+        while is_playing:
+            user_input = input("Digite o próximo símbolo:")
+            if user_input == 'end':
+                is_playing = False
+            else:
+                self.readSymbol(user_input)
+        if self.current_state.isFinal:
+            print("ACEITA")
+        else:
+            print("REJEITA")
