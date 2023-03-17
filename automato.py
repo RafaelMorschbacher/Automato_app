@@ -17,9 +17,9 @@ print('--------------------')
 print('JOGO DE ESCOLHAS COM AUTÔMATO FINITO')
 print('--------------------')
 sleep(1)
-print("Digite 'a' para ler um arquivo com palavra de entrada.")
-sleep(0.5)
 print("Digite 'j' para jogar o jogo")
+sleep(0.5)
+print("Digite 'a' para ler um arquivo com palavra de entrada.")
 sleep(0.5)
 print("Digite 'p' para entrar com uma palavra")
 sleep(0.5)
@@ -27,18 +27,23 @@ print('--------------------')
 
 user_input = input("Sua escolha: ").lower()
 
-if user_input == 'a':
+if user_input == 'j':
+    output_automato = myAut.playGame()
+
+    print(output_automato.message)
+
+
+elif user_input == 'a':
     file_name = input("Digite o nome do arquivo:")
     try:
         input_file = open(file_name, 'r')
         word = get_word_from_file(input_file)
         output_automato = myAut.readWord(word)
+        print('\n')
         print(output_automato.message)
     except:
         print("ERRO: Arquivo não encontrado.")
 
-elif user_input == 'j':
-    myAut.playGame()
 
 elif user_input == 'p':
     word = input("Digite a palavra que você deseja ler: ")
