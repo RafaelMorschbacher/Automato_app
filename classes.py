@@ -1,7 +1,5 @@
-
 def undef_transition_warning():
     print("Transição indefinida")
-
 
 
 class State:
@@ -24,6 +22,12 @@ class Transition:
         self.dst = dst
 
 
+class Output:
+    def __init__(self, is_accepted, message):
+        self.is_accepted = is_accepted
+        self.message = message
+
+
 class Automato:
     def __init__(self, states, alph, current_state_id):
         self.states = states
@@ -39,7 +43,6 @@ class Automato:
                     undef_transition = Transition(symbol, 'qt')
                     state.transitions.append(undef_transition)
 
-
     def getState(self, id):
         for state in self.states:
             if state.id == id:
@@ -49,21 +52,22 @@ class Automato:
     def readSymbol(self, symbol):
         transition = self.current_state.getTransition(symbol)
         self.current_state = self.getState(transition.dst)
-        # print(self.current_state)
-        # import pdb
-        # pdb.set_trace()
-        #self.current_state.action()
+
 
     def readWord(self, word):
         self.current_state = self.getState('q0')
-        #self.current_state.action()
+        # self.current_state.action()
         for character in word:
             self.readSymbol(character)
-        if self.current_state.isFinal:
-            print("ACEITA")
-        else:
-            print("REJEITA")
 
+        end_state = self.current_state
+        if end_state.isFinal:
+            return Output(True, 'Palavra ACEITA')
+        else:
+            if end_state.id == 'qt':
+                return Output(False, 'Palavra REJEITADA por INDEFINIÇÃO')
+            else:
+                return Output(False, 'Palavra REJEITADA por ESTADO NÃO-FINAL')
 
     def playGame(self):
 
@@ -88,7 +92,13 @@ class Automato:
             else:
                 self.readSymbol(user_input)
                 self.current_state.action()
-        if self.current_state.isFinal:
-            print("ACEITA")
+
+        end_state = self.current_state
+
+        if end_state.isFinal:
+            return Output(True, 'Palavra ACEITA')
         else:
-            print("REJEITA")
+            if end_state.id == 'qt':
+                return Output(False, 'Palavra REJEITADA por INDEFINIÇÃO')
+            else:
+                return Output(False, 'Palavra REJEITADA por ESTADO NÃO-FINAL')

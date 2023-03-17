@@ -32,7 +32,8 @@ if user_input == 'a':
     try:
         input_file = open(file_name, 'r')
         word = get_word_from_file(input_file)
-        myAut.readWord(word)
+        output_automato = myAut.readWord(word)
+        print(output_automato.message)
     except:
         print("ERRO: Arquivo não encontrado.")
 
@@ -41,4 +42,5 @@ elif user_input == 'j':
 
 elif user_input == 'p':
     word = input("Digite a palavra que você deseja ler: ")
-    myAut.readWord(word)
+    output_automato = myAut.readWord(word)
+    print(output_automato.message)
