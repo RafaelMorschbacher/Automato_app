@@ -16,7 +16,7 @@ q1 = State(
 q2 = State(
     'q2',  # 'Hall de entrada',
     actions.entry_hall,
-    [Transition('e', 'q3'), Transition('c', 'q11'), Transition('m', 'q0')],
+    [Transition('e', 'q3'), Transition('c', 'q11'), Transition('m', 'q0'),  Transition('z', 'q19')],
     False
 )
 q3 = State(
@@ -114,5 +114,11 @@ q18 = State(
     'q18', #Tentativa de voltar pela porta
     actions.door_is_locked,
     [Transition('r', 'q18'), Transition('l', 'q16'), Transition('m', 'q0')],
+    False
+)
+q19 = State(
+    'q19', #Tentativa de sair da casa pela porta principal 
+    actions.main_door_is_locked,
+    [Transition('e', 'q3'), Transition('c', 'q11'), Transition('m', 'q0')],
     False
 )
