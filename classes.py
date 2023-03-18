@@ -1,3 +1,5 @@
+from time import sleep
+
 def undef_transition_warning():
     print("Transição indefinida")
 
@@ -74,19 +76,24 @@ class Automato:
         self.current_state = self.getState('q0')
         is_playing = True
 
-        print('\n--------------------')
+        print('\n--------------')
         print('JOGO INICIADO')
+        print('--------------\n')
+        sleep(2)
+        print('-------------------------------------------------------------------------------------------')
         print('INSTRUÇÕES: ')
-        print(" - Cada símbolo da sua palavra será digitado de uma vez")
-        print(" - Cada símbolo equivale a uma AÇÃO do jogador")
-        print(" - Para parar de digitar símbolos, digite END")
-        print(" - Sua gameplay só será aceita se você terminar em um FINAL da história ou SAIR pelo menu")
-        print('--------------------')
+        print(" - Você deverá digitar apenas um símbolo da sua palavra por vez;")
+        print(" - Cada símbolo equivale a uma AÇÃO do jogador;")
+        print(" - Para parar de digitar os símbolos, digite 'END';")
+        print(" - Sua gameplay só será aceita se você terminar em um FINAL da história ou SAIR pelo menu.")
+        print('-------------------------------------------------------------------------------------------')
+        print("\n")
+        sleep(7)
 
         self.current_state.action()
 
         while is_playing:
-            user_input = input("Digite o próximo símbolo:")
+            user_input = input("Digite o próximo símbolo: ")
             if user_input.lower() == 'end':
                 is_playing = False
             else:
