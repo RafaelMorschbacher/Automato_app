@@ -40,7 +40,7 @@ q5 = State(
 q6 = State(
     'q6',  # 'Televisão: câmera de segurança',
     actions.television,
-    [Transition('t', 'q6'), Transition('r', 'q4'), Transition('m', 'q0')],
+    [Transition('t', 'q4'), Transition('m', 'q0')],
     False
 )
 q7 = State(
@@ -52,7 +52,7 @@ q7 = State(
 q8 = State(
     'q8',  # 'Papel com recado',
     actions.paper_note,
-    [Transition('r', 'q7'), Transition('m', 'q0')],
+    [Transition('n', 'q7'), Transition('m', 'q0')],
     False
 )
 q9 = State(
