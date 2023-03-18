@@ -189,13 +189,16 @@ def door_prision():
 
 #q15
 def door_first_floor():
-    print("Você abre a porta.")
+    print("Você abre a porta, entra no cômodo e fecha a porta.")
     sleep(3)
     print("Você se depara com uma luz muito intensa vindo da janela")
     sleep(3)
-    print("Parece ser uma saída da casa")
+    print("Parece ser uma saída da casa, mas pode também ser uma armadilha.")
+    sleep(3)
+    print("Talvez seja mais seguro tentar ver algo do segundo andar antes de chegar perto da janela.")
     sleep(3)
     print('--------------------------------------------')
+    print("r: retornar pela porta e voltar para o corredor.")
     print("l: andar até a janela")
     print('--------------------------------------------')
 
@@ -216,3 +219,14 @@ def garden_of_freedom():
     print("Sinta o cheiro da liberdade, o Sol, a vida!")
     sleep(3)
     print("PARABÉNS!!")
+
+#q18
+def door_is_locked():
+    print("Você tenta abrir a porta, mas ela está trancada.")
+    sleep(2)
+    print("Pelo visto você não está sozinho.")
+    sleep(3)
+    print('--------------------------------------------')
+    print("r: tentar abrir a porta novamente")
+    print("l: ir até a janela")
+    print('--------------------------------------------')

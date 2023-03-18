@@ -35,7 +35,7 @@ q5 = State(
     'q5',  # 'Garrafa de veneno',
     actions.bottle,
     [],
-    False
+    True
 )
 q6 = State(
     'q6',  # 'Televisão: câmera de segurança',
@@ -65,7 +65,7 @@ q10 = State(
     'q10',  # 'Pulou da janela e morreu',
     actions.window_jump,
     [],
-    False
+    True
 )
 q11 = State(
     'q11',  # 'q11',
@@ -89,12 +89,12 @@ q14 = State(
     'q14',  # 'Preso no alçapão',
     actions.door_prision,
     [Transition('r', 'q14')],
-    False
+    True
 )
 q15 = State(
     'q15',  # 'Viu a luz da janela',
     actions.door_first_floor,
-    [Transition('l', 'q16'), Transition('r', 'q15')],
+    [Transition('l', 'q16'), Transition('r', 'q18')],
     False
 )
 q16 = State(
@@ -108,4 +108,11 @@ q17 = State(
     actions.garden_of_freedom,
     [],
     True
+)
+
+q18 = State(
+    'q18', #Tentativa de voltar pela porta
+    actions.door_is_locked,
+    [Transition('r', 'q18'), Transition('l', 'q16')],
+    False
 )
