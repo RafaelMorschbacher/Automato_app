@@ -52,8 +52,13 @@ class Automato:
         return False
 
     def readSymbol(self, symbol):
-        transition = self.current_state.getTransition(symbol)
-        self.current_state = self.getState(transition.dst)
+        if symbol not in self.alph:
+            print("Você quebrou as regras e digitou um símbolo fora do alfabeto definido!")
+            self.current_state = self.trap_state
+
+        else:
+            transition = self.current_state.getTransition(symbol)
+            self.current_state = self.getState(transition.dst)
 
 
     def readWord(self, word):
@@ -85,6 +90,7 @@ class Automato:
         print(" - Você deverá digitar apenas um símbolo da sua palavra por vez;")
         print(" - Cada símbolo equivale a uma AÇÃO do jogador;")
         print(" - Para parar de digitar os símbolos, digite 'END';")
+        print(" - Digite apenas palavra pertencentes ao alfabeto.")
         print(" - Sua gameplay só será aceita se você terminar em um FINAL da história ou SAIR pelo menu.")
         print('-------------------------------------------------------------------------------------------')
         print("\n")
