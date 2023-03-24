@@ -10,8 +10,8 @@ def get_word_from_file(file):
 
     return word
 
-myAut = Automato([q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18],
-                 ['q', 'b', 'e', 'r', 'c', 'w', 'g', 't', 'p', 'n', 'h', 's', 'j', 'l', 'a', 'm'], 'q0')
+myAut = Automato([q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19],
+                 ['q', 'b', 'e', 'r', 'c', 'w', 'g', 't', 'p', 'n', 'h', 's', 'j', 'l', 'a', 'm', 'z'], 'q0')
 
 print('\n')
 print('-------------------------------------')
@@ -38,6 +38,7 @@ while user_input != 'off':
     if user_input == 'j':
         output_automato = myAut.playGame()
 
+        print("Palavra completa: " + output_automato.final_word)
         print(output_automato.message)
 
 

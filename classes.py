@@ -25,9 +25,10 @@ class Transition:
 
 
 class Output:
-    def __init__(self, is_accepted, message):
+    def __init__(self, is_accepted, message, final_word):
         self.is_accepted = is_accepted
         self.message = message
+        self.final_word = final_word
 
 
 class Automato:
@@ -69,17 +70,18 @@ class Automato:
 
         end_state = self.current_state
         if end_state.isFinal:
-            return Output(True, 'Palavra ACEITA')
+            return Output(True, 'Palavra ACEITA', word)
         else:
             if end_state.id == 'qt':
-                return Output(False, 'Palavra REJEITADA por INDEFINIÇÃO')
+                return Output(False, 'Palavra REJEITADA por INDEFINIÇÃO', word)
             else:
-                return Output(False, 'Palavra REJEITADA por ESTADO NÃO-FINAL')
+                return Output(False, 'Palavra REJEITADA por ESTADO NÃO-FINAL', word)
 
     def playGame(self):
 
         self.current_state = self.getState('q0')
         is_playing = True
+        final_word = ""
 
         print('\n--------------')
         print('JOGO INICIADO')
@@ -105,13 +107,14 @@ class Automato:
             else:
                 self.readSymbol(user_input)
                 self.current_state.action()
+                final_word = final_word + user_input
 
         end_state = self.current_state
 
         if end_state.isFinal:
-            return Output(True, 'Palavra ACEITA')
+            return Output(True, 'Palavra ACEITA', final_word)
         else:
             if end_state.id == 'qt':
-                return Output(False, 'Palavra REJEITADA por INDEFINIÇÃO')
+                return Output(False, 'Palavra REJEITADA por INDEFINIÇÃO', final_word)
             else:
-                return Output(False, 'Palavra REJEITADA por ESTADO NÃO-FINAL')
+                return Output(False, 'Palavra REJEITADA por ESTADO NÃO-FINAL', final_word)
