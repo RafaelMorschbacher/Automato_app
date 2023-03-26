@@ -1,7 +1,8 @@
 from time import sleep
 
 def undef_transition_warning():
-    print("Transição indefinida")
+    print("Transição indefinida\n")
+    sleep(1)
 
 
 class State:
@@ -54,7 +55,8 @@ class Automato:
 
     def readSymbol(self, symbol):
         if symbol not in self.alph:
-            print("Você quebrou as regras e digitou um símbolo fora do alfabeto definido!")
+            print("\nVocê quebrou as regras e digitou um símbolo fora do alfabeto definido!")
+            sleep(1)
             self.current_state = self.trap_state
 
         else:
@@ -87,23 +89,29 @@ class Automato:
         print('JOGO INICIADO')
         print('--------------\n')
         sleep(2)
-        print('-------------------------------------------------------------------------------------------')
+        print('----------------------------------------------------------------------------------------------------------------')
         print('INSTRUÇÕES: ')
-        print(" - Você deverá digitar apenas um símbolo da sua palavra por vez;")
+        print(" - Você deve digitar apenas um símbolo da sua palavra por vez;")
         print(" - Cada símbolo equivale a uma AÇÃO do jogador;")
         print(" - Para parar de digitar os símbolos, digite 'END';")
-        print(" - Digite apenas palavra pertencentes ao alfabeto.")
-        print(" - Sua gameplay só será aceita se você terminar em um FINAL da história ou SAIR pelo menu.")
-        print('-------------------------------------------------------------------------------------------')
-        print("\n")
+        print(" - Digite apenas símbolos pertencentes ao alfabeto;")
+        print(" - Sua gameplay só será aceita se você terminar em um FINAL da história ou se SAIR do jogo pelo menu inicial.")
+        print('----------------------------------------------------------------------------------------------------------------')
         sleep(7)
 
         self.current_state.action()
 
         while is_playing:
+            print('----------------------------------------------')
             user_input = input("Digite o próximo símbolo: ")
+            sleep(1)
             if user_input.lower() == 'end':
                 is_playing = False
+            elif user_input.lower() == 'q':
+                is_playing = False
+                self.readSymbol(user_input)
+                self.current_state.action()
+                final_word = final_word + user_input
             else:
                 self.readSymbol(user_input)
                 self.current_state.action()

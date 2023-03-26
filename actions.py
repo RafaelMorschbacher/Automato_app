@@ -2,17 +2,20 @@ from time import sleep
 
 #q0
 def menu(): 
-    print("---------------MENU INICIAL---------------")
+    print("\n---------------MENU INICIAL-----------------")
     print("Pressione 'b' para iniciar uma nova história")
     print("Pressione 'q' para sair do jogo")
-    print('--------------------------------------------')
 
 #q1
 def quit_game(): 
     print("Você saiu do jogo.")
 
 #q2
-def entry_hall(): 
+def entry_hall():
+    print('\n--------------------------------------------') 
+    print("               INÍCIO DA HISTÓRIA               ")
+    print('--------------------------------------------\n')
+    sleep(2)
     print("\nVocê está no hall de entrada de uma casa sombria. Você não se lembra como chegou até aqui e a porta está trancada.")
     sleep(5)
     print("Atrás de você, está a porta principal da casa.")
@@ -26,7 +29,6 @@ def entry_hall():
     print("e: subir a escada")
     print("c: andar pelo corredor")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q3
 def second_floor():
@@ -39,7 +41,6 @@ def second_floor():
     print("c: explorar mais o corredor")
     print("r: dar meia volta e descer as escadas")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q4
 def bedroom():
@@ -54,7 +55,6 @@ def bedroom():
     print("t: ligar a TV")
     print("r: sair do quarto")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q5
 def bottle():
@@ -71,7 +71,6 @@ def bottle():
     print('--------------------------------------------')
     print("m: voltar para o menu inicial")
     print("END: sair so jogo")
-    print('--------------------------------------------')
 
 #q6
 def television():
@@ -88,11 +87,10 @@ def television():
     print('--------------------------------------------')
     print("t: desligar a TV")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q7
 def second_floor_hall():
-    print("\nVocê segue andando pelo corredor, e é possível ver algo:")
+    print("\nVocê segue andando pelo corredor e é possível ver algo:")
     sleep(3)
     print("Há uma mesinha com um abajour que está com mal contato; a luz é fraca e está piscando.")
     sleep(3)
@@ -103,9 +101,8 @@ def second_floor_hall():
     print('--------------------------------------------')
     print("p: abrir a porta e entrar no quarto")
     print("n: pegar o pedaço de papel")
-    print("m: voltar para o menu inicial")
     print("r: retornar pelo corredor")
-    print('--------------------------------------------')
+    print("m: voltar para o menu inicial")
 
 #q8
 def paper_note():
@@ -118,7 +115,6 @@ def paper_note():
     print('--------------------------------------------')
     print("n: largar o bilhete")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q9
 def door_second_floor():
@@ -134,7 +130,6 @@ def door_second_floor():
     print("h: se agarrar na calha para descer")
     print("s: pular em direção à árvore e tentar se descer por ela")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q10
 def window_jump():
@@ -149,7 +144,6 @@ def window_jump():
     print('--------------------------------------------')
     print("m: voltar para o menu inicial")
     print("END: sair so jogo")
-    print('--------------------------------------------')
 
 #q11
 def first_floor_hall():
@@ -166,7 +160,6 @@ def first_floor_hall():
     print("p: seguir no corredor e abrir a porta")
     print("r: voltar para o hall de entrada")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q12
 def trapdoor():
@@ -182,7 +175,6 @@ def trapdoor():
     print("c: continuar embaixo, seguindo pelo corredor")
     print("r: subir e voltar pelo alçapão para o primeiro andar")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q13
 def loft_hall():
@@ -196,7 +188,6 @@ def loft_hall():
     print("p: abrir a porta misteriosa")
     print("r: retornar pelo corredor para o alçapão")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q14
 def door_prision():
@@ -213,7 +204,6 @@ def door_prision():
     print('--------------------------------------------')
     print("m: voltar para o menu inicial")
     print("END: sair so jogo")
-    print('--------------------------------------------')
 
 #q15
 def door_first_floor():
@@ -229,7 +219,6 @@ def door_first_floor():
     print("r: retornar pela porta e voltar para o corredor.")
     print("l: andar até a janela")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q16
 def window_first_floor():
@@ -240,7 +229,6 @@ def window_first_floor():
     print('--------------------------------------------')
     print("j: pular pela janela")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q17
 def garden_of_freedom():
@@ -253,7 +241,6 @@ def garden_of_freedom():
     print('--------------------------------------------')
     print("m: voltar para o menu inicial")
     print("END: sair so jogo")
-    print('--------------------------------------------')
 
 #q18
 def door_is_locked():
@@ -265,7 +252,6 @@ def door_is_locked():
     print("r: tentar abrir a porta novamente")
     print("l: ir até a janela")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
 
 #q19
 def main_door_is_locked():
@@ -277,4 +263,3 @@ def main_door_is_locked():
     print("e: subir a escada")
     print("c: andar pelo corredor")
     print("m: voltar para o menu inicial")
-    print('--------------------------------------------')
