@@ -46,7 +46,7 @@ while user_input != 'off':
 
     elif user_input == 'a':
         
-        file_name = input("Digite o nome do arquivo: ") + '.txt'
+        file_name = input("Digite o nome do arquivo sem a extensão: ") + '.txt'
         try:
             input_file = open(file_name, 'r')
             word = get_word_from_file(input_file)
