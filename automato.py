@@ -55,3 +55,9 @@ while user_input != 'off':
         word = input("Digite a palavra que você deseja ler: ")
         output_automato = myAut.readWord(word)
         print(output_automato.message)
+
+    else:
+        if user_input != 'off':
+            sleep(0.5)
+            print("Opção inválida. Por favor, selecione uma das opções listadas")
+            sleep(1)

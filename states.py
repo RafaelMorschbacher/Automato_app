@@ -46,7 +46,7 @@ q6 = State(
 q7 = State(
     'q7',  # 'Corredor do andar de cima',
     actions.second_floor_hall,
-    [Transition('n', 'q8'), Transition('p', 'q9'), Transition('m', 'q0')],
+    [Transition('n', 'q8'), Transition('p', 'q9'), Transition('r', 'q3'), Transition('m', 'q0')],
     False
 )
 q8 = State(
