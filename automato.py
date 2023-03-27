@@ -3,8 +3,14 @@ from classes import State, Automato, Transition
 from time import sleep
 
 def get_word_from_file(file):
-    word = input_file.readlines()
-    return word[0]
+    lines = file.readlines()
+    word = []
+    for line in lines:
+        word.append(line.strip())
+    word_string = ''
+    for i in word:
+        word_string = word_string + i
+    return word_string
 
 myAut = Automato([q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19],
                  ['q', 'b', 'e', 'r', 'c', 'w', 'g', 't', 'p', 'n', 'h', 's', 'j', 'l', 'a', 'm', 'z'], 'q0')
