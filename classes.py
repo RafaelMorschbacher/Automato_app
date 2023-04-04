@@ -108,15 +108,17 @@ class Automato:
             sleep(1)
             if user_input.lower() == 'end':
                 is_playing = False
-            elif user_input.lower() == 'q':
-                is_playing = False
-                self.readSymbol(user_input)
-                self.current_state.action()
-                final_word = final_word + user_input
+            # elif user_input.lower() == 'q':
+            #     is_playing = False
+            #     self.readSymbol(user_input)
+            #     self.current_state.action()
+            #     final_word = final_word + user_input
             else:
                 self.readSymbol(user_input)
                 self.current_state.action()
                 final_word = final_word + user_input
+                if self.current_state == self.trap_state or user_input.lower() == 'q':
+                    is_playing = False
 
         end_state = self.current_state
 
