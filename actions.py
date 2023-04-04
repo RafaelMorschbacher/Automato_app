@@ -2,7 +2,7 @@ from time import sleep
 
 #q0
 def menu(): 
-    print("\n---------------MENU INICIAL-----------------")
+    print("\n----------------MENU INICIAL------------------")
     print("Pressione 'b' para iniciar uma nova história")
     print("Pressione 'q' para sair do jogo")
 
@@ -64,13 +64,10 @@ def bottle():
     sleep(3)
     print("Você tenta se apoiar na mesa, mas não é o suficiente.")
     sleep(3)
-    print("Caido no chão, você vê uma sombra lentamente entrando pela porta do quarto e se aproximando.")
+    print("Caído no chão, você vê uma sombra lentamente entrando pela porta do quarto e se aproximando.")
     sleep(5)
     print("GAME OVER")
     sleep(2)
-    print('--------------------------------------------')
-    print("m: voltar para o menu inicial")
-    print("END: sair so jogo")
 
 #q6
 def television():
@@ -96,7 +93,7 @@ def second_floor_hall():
     sleep(3)
     print("É possível ver que, embaixo do abajour, há um pedaço de papel.")
     sleep(3)
-    print("Há mais uma porta no corredor, de onde parece vir um pouco de luz.")
+    print("Há mais uma porta no corredor, parece ser de um quarto, de onde está vindo uma luz.")
     sleep(3)
     print('--------------------------------------------')
     print("p: abrir a porta e entrar no quarto")
@@ -106,7 +103,7 @@ def second_floor_hall():
 
 #q8
 def paper_note():
-    print("\nVocê levanta o abajour e pega o pedaço de papel: é um bilhete")
+    print("\nVocê levanta o abajour e pega o pedaço de papel: é um bilhete.")
     sleep(3)
     print("É dificl entender o que está escrito, provavelmente quem escreveu fez isso com muita pressa.")
     sleep(4)
@@ -127,23 +124,20 @@ def door_second_floor():
     print("Enquanto você observa as possibilidades, é possível ouvir passos no corredor, cada vez mais próximos. É preciso pensar rápido.")
     sleep(5)
     print('--------------------------------------------')
-    print("h: se agarrar na calha para descer")
-    print("s: pular em direção à árvore e tentar se descer por ela")
+    print("s: se agarrar na calha para descer")
+    print("h: pular em direção à árvore e tentar descer por ela")
     print("m: voltar para o menu inicial")
 
 #q10
 def window_jump():
     print("\nVocê pula da janela e tenta se agarrar em um galho da árvore, mas ele quebra no mesmo instante.")
     sleep(4)
-    print("Você caiu de costas no chão e ficou incapaz de se mover")
+    print("Você caiu de costas no chão e ficou incapaz de se mover.")
     sleep(3)
     print("Antes de desmaiar, você vê um vulto entrando no jardim e se aproximando de você.")
     sleep(5)
     print("GAME OVER")
     sleep(2)
-    print('--------------------------------------------')
-    print("m: voltar para o menu inicial")
-    print("END: sair so jogo")
 
 #q11
 def first_floor_hall():
@@ -153,7 +147,7 @@ def first_floor_hall():
     sleep(3)
     print("No final do corredor, há uma porta fechada.")
     sleep(3)
-    print("É possível ouvir, ao fundo, o som de passos que parecem vir de trás da porta.")
+    print("É possível ouvir um barulho que parece vir de trás da porta.")
     sleep(4)
     print('--------------------------------------------')
     print("a: abrir o alçapão e descer")
@@ -165,11 +159,11 @@ def first_floor_hall():
 def trapdoor():
     print("\nVocê desceu pela passagem do alçapão.")
     sleep(3)
-    print("A sua frente existe apenas um coredor para seguir em frente")
+    print("A sua frente existe apenas um coredor para seguir em frente.")
     sleep(3)
     print("Ao final do corredor, há uma porta fechada.")
     sleep(3)
-    print("Esse porta, por sua vez, parece diferente das demais portas")
+    print("Esse porta, por sua vez, parece diferente das demais portas.")
     sleep(3)
     print('--------------------------------------------')
     print("c: continuar embaixo, seguindo pelo corredor")
@@ -178,11 +172,11 @@ def trapdoor():
 
 #q13
 def loft_hall():
-    print("\nVocê optou por seguir em frente, e agora chegou até a porta")
+    print("\nVocê optou por seguir em frente, e agora chegou até a porta.")
     sleep(3)
     print("Essa porta apresenta ranhuras, marcas de sangue e uma fechadura enferrujada.")
     sleep(3)
-    print("Um barulho vindo do alçapão é ouvido")
+    print("Um barulho vindo do alçapão é ouvido.")
     sleep(3)
     print('--------------------------------------------')
     print("p: abrir a porta misteriosa")
@@ -191,19 +185,16 @@ def loft_hall():
 
 #q14
 def door_prision():
-    print("\nVocê passa pela porta")
+    print("\nVocê passa pela porta.")
     sleep(3)
     print("Você se depara com um cativeiro, com correntes, ossos, moscas e sangue espalhado.")
     sleep(3)
-    print("Alguém entra na sala nesse instante e o apunhá-la pelas costas, deixando-o desacordado")
+    print("Alguém entra na sala nesse instante e o apunhá-la pelas costas, deixando-o desacordado.")
     sleep(3)
-    print("Você acorda e percebe que está acorrentado. Começa a ouvir uma espécie de um animal correndo na sua direção")
+    print("Você acorda e percebe que está acorrentado. Começa a ouvir uma espécie de um animal correndo na sua direção.")
     sleep(5)
     print("GAME OVER")
     sleep(2)
-    print('--------------------------------------------')
-    print("m: voltar para o menu inicial")
-    print("END: sair so jogo")
 
 #q15
 def door_first_floor():
@@ -222,9 +213,9 @@ def door_first_floor():
 
 #q16
 def window_first_floor():
-    print("\nChegando perto da janela, você olha para fora e percebe que consegue chegar ao jardim")
+    print("\nChegando perto da janela, você olha para fora e percebe que consegue chegar ao jardim.")
     sleep(4)
-    print("Basta pular a janela que você chega ao jardim e consegue escapar da casa")
+    print("Basta pular a janela que você chega ao jardim e consegue escapar da casa.")
     sleep(3)
     print('--------------------------------------------')
     print("j: pular pela janela")
@@ -234,13 +225,10 @@ def window_first_floor():
 def garden_of_freedom():
     print("\nVocê conseguiu escapar da casa!")
     sleep(3)
-    print("Sinta o cheiro da liberdade, o Sol, a vida!")
+    print("Sinta o cheiro da liberdade!")
     sleep(3)
-    print("PARABÉNS!!")
+    print("PARABÉNS!")
     sleep(2)
-    print('--------------------------------------------')
-    print("m: voltar para o menu inicial")
-    print("END: sair so jogo")
 
 #q18
 def door_is_locked():
@@ -257,7 +245,7 @@ def door_is_locked():
 def main_door_is_locked():
     print("\nVocê tenta abrir a porta principal, mas ela está trancada.")
     sleep(2)
-    print("Não há como escapar por aqui. Você terá que escolher outro caminho")
+    print("Não há como escapar por aqui. Você terá que escolher outro caminho.")
     sleep(3)
     print('--------------------------------------------')
     print("e: subir a escada")

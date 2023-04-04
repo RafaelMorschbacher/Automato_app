@@ -118,7 +118,7 @@ class Automato:
                 self.current_state.action()
                 final_word = final_word + user_input
                 #Se o user der quit game ou simbolo indefinido, parar o jogo
-                if self.current_state == self.trap_state or user_input.lower() == 'q':
+                if self.current_state == self.trap_state or user_input.lower() == 'q' or self.current_state.isFinal:
                     is_playing = False
 
         end_state = self.current_state
