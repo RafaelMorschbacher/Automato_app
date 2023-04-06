@@ -27,7 +27,7 @@ print('--------------------------------')
 sleep(2)
 
 #Usuário decide o que fazer: leitura de palavra digitada, em arquivo ou letra por letra (jogar)
-ser_input = ''
+user_input = ''
 while user_input != 'off':
     sleep(0.5)
     print('-------------------------------------')
