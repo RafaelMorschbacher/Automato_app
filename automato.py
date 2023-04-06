@@ -1,7 +1,10 @@
 from states import *
-from classes import State, Automato, Transition
+from classes import Automato
 from time import sleep
 
+#Este programa é o que deve ser executado para jogar o jogo
+
+#Tratamento do arquivo para leitura da palavra (1 char por linha)
 def get_word_from_file(file):
     lines = file.readlines()
     word = []
@@ -12,17 +15,19 @@ def get_word_from_file(file):
         word_string = word_string + i
     return word_string
 
+#Definição do autômato, passando:
+# lista de estados, alfabeto, e ID do estado inicial
 myAut = Automato([q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19],
                  ['q', 'b', 'e', 'r', 'c', 'w', 'g', 't', 'p', 'n', 'h', 's', 'j', 'l', 'a', 'm', 'z'], 'q0')
 
 print('\n')
-print('-------------------------------------')
+print('--------------------------------')
 print('ESCAPE ROOM COM AUTÔMATO FINITO')
-print('-------------------------------------')
+print('--------------------------------')
 sleep(2)
 
-
-user_input = ''
+#Usuário decide o que fazer: leitura de palavra digitada, em arquivo ou letra por letra (jogar)
+ser_input = ''
 while user_input != 'off':
     sleep(0.5)
     print('-------------------------------------')

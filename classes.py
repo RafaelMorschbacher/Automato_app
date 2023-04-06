@@ -1,10 +1,13 @@
 from time import sleep
 
+# Aviso de transição indefinida
 def undef_transition_warning():
     print("Transição indefinida\n")
     sleep(1)
+    return None
 
-
+# Classe de estado, guardando as transições e booleano que indca ser final u não, um ID de identificação e uma ação. 
+#Cada estado representa um ambiente em que o jogador se encontra
 class State:
     def __init__(self, id, action, transitions, isFinal):
         self.id = id
@@ -18,26 +21,29 @@ class State:
                 return transition
         return False
 
-
+#Instâncias da classe Transição é guardada em uma lista dentro de cada estado
+# Cada transição representa uma ação do jogador
 class Transition:
     def __init__(self, symbol, dst):
         self.symbol = symbol
         self.dst = dst
 
 
+# Classe que reppresenta a SAÍDA do autômato, com mensagem, booleano de aceita/rejeita e palavra final
 class Output:
     def __init__(self, is_accepted, message, final_word):
         self.is_accepted = is_accepted
         self.message = message
         self.final_word = final_word
 
-
+# CLasse do autômato em si, que guarda todos os seus estados com suas transições, alfabeto e um estado atual, que muda conforme a leitura
+# A indefinição é tratada pela própria classe, tanto por transição indefinida quanto por símbolo fora do alfabeto.
 class Automato:
     def __init__(self, states, alph, current_state_id):
         self.states = states
         self.alph = alph
         self.current_state = self.getState(current_state_id)
-
+        # Criação de um 'trap state' em tempo de execução e envio de todas as transições indefinidas para ele.
         self.trap_state = State('qt', undef_transition_warning, [], False)
         self.states.append(self.trap_state)
 
@@ -47,12 +53,13 @@ class Automato:
                     undef_transition = Transition(symbol, 'qt')
                     state.transitions.append(undef_transition)
 
+    #A partir de u ID, como 'q2', retorna o estado com aquele ID
     def getState(self, id):
         for state in self.states:
             if state.id == id:
                 return state
         return False
-
+    #Atualiza o estado atual do automato lendo um simbolo e sua respectiva transição no estado atual
     def readSymbol(self, symbol):
         if symbol not in self.alph:
             print("\nVocê quebrou as regras e digitou um símbolo fora do alfabeto definido!")
@@ -63,7 +70,8 @@ class Automato:
             transition = self.current_state.getTransition(symbol)
             self.current_state = self.getState(transition.dst)
 
-
+    #Itera leitura de simbolo para uma palavra inteira
+    # Retorna um OUtput com atributos definidos na classe
     def readWord(self, word):
         self.current_state = self.getState('q0')
         # self.current_state.action()
@@ -78,7 +86,8 @@ class Automato:
                 return Output(False, f'Palavra {word} REJEITADA por INDEFINIÇÃO', word)
             else:
                 return Output(False, f'Palavra {word} REJEITADA por ESTADO NÃO-FINAL', word)
-
+    #Recebe input do jogador (letra por letra) e realiza uma ação de cada estado por vez
+    #O jogador decide as letras com base nas ações que ele quer realizar dentre as disponíveis, e no final recebe um Output da palavra completa
     def playGame(self):
 
         self.current_state = self.getState('q0')
@@ -108,11 +117,7 @@ class Automato:
             sleep(1)
             if user_input.lower() == 'end':
                 is_playing = False
-            # elif user_input.lower() == 'q':
-            #     is_playing = False
-            #     self.readSymbol(user_input)
-            #     self.current_state.action()
-            #     final_word = final_word + user_input
+
             else:
                 self.readSymbol(user_input)
                 self.current_state.action()

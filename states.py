@@ -1,6 +1,9 @@
 from classes import State, Transition
 import actions
 
+#DEFINIÇÃO DE TODOS OS ESTADOS DO JOGO
+#Cada estado contém um ID, uma ação, uma lista de Transições e um booleano de final/não final
+
 q0 = State(
     'q0',  # 'Menu inicial',
     actions.menu,

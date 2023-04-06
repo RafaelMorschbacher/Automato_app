@@ -1,5 +1,7 @@
 from time import sleep
 
+#MENSAGENS/AÇÕES DE CADA ESTADO
+
 #q0
 def menu(): 
     print("\n----------------MENU INICIAL------------------")
