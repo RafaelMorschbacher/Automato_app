@@ -43,6 +43,7 @@ class Automato:
         self.states = states
         self.alph = alph
         self.current_state = self.getState(current_state_id)
+
         # Criação de um 'trap state' em tempo de execução e envio de todas as transições indefinidas para ele.
         self.trap_state = State('qt', undef_transition_warning, [], False)
         self.states.append(self.trap_state)
